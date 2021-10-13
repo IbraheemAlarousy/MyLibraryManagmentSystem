@@ -1,0 +1,109 @@
+﻿<div class="row">
+    <div class="col-sm-4">
+        @using (Html.BeginForm("Save", "IssueBook", FormMethod.Post))
+        {
+            <div>
+                <h3>Issue Book</h3>
+            </div>
+            <div>@Html.ActionLink("Details", "Index", "IssueBook2")</div>   <br />
+            <div class="form-group">
+                <label>Member ID</label>
+                <input type="text" id="MemberID" name="MemberID" class="form-control" placeholder="Member ID" required />
+
+            </div>
+            <div class="form-group">
+                <label>Member Name</label>
+                <input type="text" id="mnanm" name="mnanm" class="form-control" placeholder="Member Name" required />
+
+            </div>
+            <div class="form-group">
+                <label>Book</label>
+                <select class="form-control" id="BookName" name="BookName">
+                    <option>Please Select</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label>Isuue Date</label>
+                <input type="date" id="IssueDate" name="IssueDate" class="form-control" required />
+
+            </div>
+            <div class="form-group">
+                <label>Return Date</label>
+                <input type="date" id="ReturnDate" name="ReturnDate" class="form-control" required />
+
+            </div>
+
+            <div class="form-group">
+
+                <input type="submit" value="Save" class="btn-success" required />
+
+            </div>
+        }
+
+
+
+    </div>
+</div>
+
+
+}
+
+@section scripts
+    {
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script>
+
+                        getMid();
+                        getBooks();
+
+        function getMid() {
+            $("#MemberID").keyup(function (e) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/IssueBook/Getmid?mid=' + $("#MemberID").val(),
+                    dataType: 'JSON',
+                    success: function (data) {
+
+                        $("#mnanm").val(data);
+
+                    }
+
+                });
+            });
+        }
+
+
+        function getBooks() {
+        
+                $.ajax({
+                    type: 'GET',
+                    url: '/IssueBook/Getbook',
+                    dataType: 'JSON',
+                    success: function (data)
+                    {
+
+                        console.log(data);
+                        for (var i = 0; i < data.length; i++)
+                        {
+                            $("#BookName").append($("<option/>",
+                                {
+
+                                text: data[i].Name
+
+                            }));
+                        }
+                    
+
+                    }, error: function (xhr, status, error) {
+                        alert(xhr.responseText);
+                    }
+            });
+        }
+    </script>
+       }

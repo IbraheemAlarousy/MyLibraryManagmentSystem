@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a1e8c6c631e04c119ff2b57844ade549" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryDBModel.Author" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Category" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Puplisher" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Book" Width="1.5" PointX="6.25" PointY="1.625" />
+        <AssociationConnector Association="LibraryDBModel.FK_Book_Author" />
+        <AssociationConnector Association="LibraryDBModel.FK_Book_Category" />
+        <AssociationConnector Association="LibraryDBModel.FK_Book_Puplisher" />
+        <EntityTypeShape EntityType="LibraryDBModel.Member" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="LibraryDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="LibraryDBModel.IssueBook" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="LibraryDBModel.ReturnBook" Width="1.5" PointX="7.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
